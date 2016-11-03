@@ -1,0 +1,26 @@
+'''
+Created on 03.11.2016
+
+@author: MothSlayer
+'''
+
+import numpy as np
+import cv2
+
+
+width = 100
+height= 100
+cv2.imwrite('graukeil.pgm',width,height)
+
+def graukeil (width):
+    cv2.imwrite('testor.jpg')
+    image = cv2.
+    
+    
+img = cv2.imread('opencv_screenshot.jpg', 0)
+
+cv2.imwrite('testor.jpg',img)
+cv2.imshow('',img)
+cv2.waitKey(0)& 0xFF
+cv2.destroyAllWindows()
+

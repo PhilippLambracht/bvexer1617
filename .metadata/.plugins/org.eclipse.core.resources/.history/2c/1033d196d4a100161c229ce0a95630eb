@@ -1,0 +1,16 @@
+'''
+Created on 03.11.2016
+
+@author: MothSlayer
+'''
+
+import numpy as np
+import cv2
+
+img = cv2.imread('opencv_screenshot.jpeg', 0)
+
+cv2.imwrite('testor.jpg',img)
+cv2.imshow(img)
+cv2.waitKey(0)& 0xFF
+cv2.destroyAllWindows()
+

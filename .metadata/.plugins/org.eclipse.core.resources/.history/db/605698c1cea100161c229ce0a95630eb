@@ -1,0 +1,15 @@
+'''
+Created on 03.11.2016
+
+@author: MothSlayer
+'''
+
+import numpy as np
+import cv2
+
+img = cv2.imread('C:\Users\MothSlayer\Documents\GitHub\bvexer1617\exercises\res\lena.pgm',0)
+
+cv2.imshow('test',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
