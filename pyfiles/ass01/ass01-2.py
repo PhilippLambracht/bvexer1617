@@ -46,12 +46,36 @@ def blackframe(bframe):
             
     return bframe
 
-
-height= 400
-width = 300
+def chessfield(cfield, n):
+    x=0
+    y=0
+    height, width = cfield.shape
+    white = 255
+    black = 0
+    ySideSwitch = False
+    xSideSwitch = False
+    for y in range(0,height):
+        for x in range(0,width):
+            
+            
+            if (ySideSwitch==False and xSideSwitch==True):
+                cfield.itemset((y,x),white)
+            else:
+                cfield.itemset((y,x),black)
+            
+            if((x % n ==0) and (x>0)):
+                xSideSwitch = not xSideSwitch
+            
+        if((y % n == 0) and (y>0)):
+            ySideSwitch = not ySideSwitch
+            
+    return cfield       
+    
+ImgHeight= 400
+ImgWidth = 300
 
 #create blank image
-blankImg = np.zeros((height,width,1), np.uint8)
+blankImg = np.zeros((ImgHeight,ImgWidth,1), np.uint8)
 cv2.imwrite('blankImg.pgm',blankImg)
 
 # create graukeil
@@ -65,10 +89,10 @@ cv2.waitKey(0)& 0xFF
 cv2.destroyAllWindows()
 
 #create white image
-whiteImg =np.full((height,width,1),255,np.uint8)
+whiteImg =np.full((ImgHeight,ImgWidth,1),255,np.uint8)
 cv2.imwrite('whiteBlank.pgm',whiteImg)
 
-bframe= cv2.imread('whiteBlank.pgm',0)
+bframe = cv2.imread('whiteBlank.pgm',0)
 bframe = blackframe(bframe)
 
 cv2.imwrite('blackframe.pgm',bframe)
@@ -76,7 +100,20 @@ cv2.imshow('blackFrame',bframe)
 cv2.waitKey(0)& 0xFF
 cv2.destroyAllWindows()
 
-    
+blankchess =np.full((200,200,1),255,np.uint8)
+cv2.imwrite('blankchess.pgm',blankchess)
+
+chessf = cv2.imread('blankchess.pgm',0)
+print chessf.shape
+chessf = chessfield(chessf, 50)
+
+
+cv2.imwrite('chessfield.pgm',chessf)
+cv2.imshow('chessfield',chessf)
+cv2.waitKey(0)& 0xFF
+cv2.destroyAllWindows()
+
+
 # img = cv2.imread('opencv_screenshot.jpg', 0)
 
 # cv2.imwrite('testor.jpg',img)
